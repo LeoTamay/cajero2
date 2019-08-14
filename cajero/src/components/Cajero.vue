@@ -3,7 +3,7 @@
     <div class="header">
       <img class="logo" src="../assets/logo.png" />
       <div class="align-left">
-        <span id="nombre">Bienvenido/a</span>
+        <span id="nombre">Bienvenido/a {{usuarioActivo.nombre}}</span>
         <img class="avatar" src="../assets/avatar.svg" />
       </div>
     </div>
@@ -18,9 +18,9 @@
       </div>
       <div class="green-container">
         <div class="cuenta-info">
-          <p>Saldo en tu cuenta</p>
-          <h3 id="saldo-cuenta">$</h3>
-          <p id="limite-extraccion">Tu límite de extracción es:</p>
+          <p>Saldo en tu cuenta </p>
+          <h3 id="saldo-cuenta">${{usuarioActivo.saldo}}</h3>
+          <p id="limite-extraccion">Tu límite de extracción es: {{usuarioActivo.limite}}</p>
         </div>
       </div>
     </div>
@@ -29,6 +29,7 @@
 
 <script>
 export default {
+  props: ["usuarioActivo"],
   name: "Cajero",
   data() {
     return {
